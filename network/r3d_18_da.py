@@ -85,6 +85,7 @@ class VideoResNet(nn.Module):
 		"""
 		super(VideoResNet, self).__init__()
 		self.inplanes = 64
+		self.ReLU = nn.ReLU(inplace=True)
 
 		self.stem = stem()
 
