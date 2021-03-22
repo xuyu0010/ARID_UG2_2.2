@@ -183,7 +183,7 @@ def _video_resnet(arch, pretrained=False, num_classes=400, DA_method=None, **kwa
 
 	model = VideoResNet(num_classes=num_classes, DA_method=None, **kwargs)
 
-	if pretrained:
+	if pretrained: # Download pretrained model for this demo as in https://github.com/pytorch/vision/blob/master/torchvision/models/video/resnet.py
 		pretrained_model=os.path.join(os.path.dirname(os.path.realpath(__file__)), 'pretrained/r3d_18-b3b3357e.pth')
 		logging.info("Network:: graph initialized, loading pretrained model: `{}'".format(pretrained_model))
 		assert os.path.exists(pretrained_model), "cannot locate: `{}'".format(pretrained_model)
