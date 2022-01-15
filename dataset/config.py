@@ -4,8 +4,8 @@ def get_config(name):
 
 	config = {}
 
-	if name.upper() == 'HMDB-ARID':
-		config['num_classes'] = 5
+	if name.upper() == 'UG2-2022':
+		config['num_classes'] = 11
 	else:
 		logging.error("Configs for dataset '{}'' not found".format(name))
 		raise NotImplemented
@@ -18,4 +18,4 @@ def get_config(name):
 if __name__ == "__main__":
 	
 	logging.getLogger().setLevel(logging.DEBUG)
-	logging.info(get_config("HMDB-ARID"))
+	logging.info(get_config("UG2-2022"))

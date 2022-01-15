@@ -27,8 +27,8 @@ parser = argparse.ArgumentParser(description="PyTorch Video Recognition Parser (
 # debug
 parser.add_argument('--debug-mode', type=bool, default=True,)
 # io
-parser.add_argument('--dataset', default='HMDB-ARID')
-parser.add_argument('--target-dataset', default='ARID', help="path to target dataset")
+parser.add_argument('--dataset', default='UG2-2022')
+parser.add_argument('--target-dataset', default='Clear', help="path to target dataset")
 parser.add_argument('--clip-length', default=16, help="define the length of each input sample.")
 parser.add_argument('--frame-interval', type=int, default=2, help="define the sampling interval between frames.")
 parser.add_argument('--task-name', type=str, default='../exps/models/ARID_UG2_2.2', help="name of current task, leave it empty for using folder name")
@@ -43,9 +43,9 @@ parser.add_argument('--load-epoch', type=int, default=2, help="resume trained mo
 parser.add_argument('--batch-size', type=int, default=4, help="batch size")
 
 #other parameters
-parser.add_argument('--list-file', type=str, default='ARID1.1_t2_validation_gt_pub.csv', help='list of testing videos, see list_cvt folder of each dataset for details')
+parser.add_argument('--list-file', type=str, default='hmdb_validate_public.csv', help='list of testing videos, see list_cvt folder of each dataset for details')
 parser.add_argument('--workers', type=int, default=4, help='num_workers during evaluation data loading')
-parser.add_argument('--zip-file', type=str, default='Track2_2.zip', help='zip file destination for prediction csv file')
+parser.add_argument('--zip-file', type=str, default='ug2-2022.zip', help='zip file destination for prediction csv file')
 
 def autofill(args):
 	# customized
@@ -116,9 +116,9 @@ if __name__ == '__main__':
 	net.net.eval()
 	sum_batch_elapse = 0.
 	softmax = torch.nn.Softmax(dim=1)
-	field_names = ['VideoID', 'Video', 'ClassID']
+	field_names = ['VideoID', 'Video', 'ClassID', 'Probability']
 	pred_rows = []
-	pred_file = 'track2_pred.csv'
+	pred_file = 'arid_pred.csv'
 
 	i_batch = 0
 	for datas, targets, video_subpaths in eval_iter:
@@ -139,7 +139,8 @@ if __name__ == '__main__':
 			_, pred_class_i = torch.topk(output_i, 1)
 			class_id_i = pred_class_i.numpy()[0][0]
 			video_id_i = int(video_subpath_i.split('.')[0])
-			pred_row = {field_names[0]: video_id_i, field_names[1]: video_subpath_i, field_names[2]: class_id_i}
+			pred_row = {field_names[0]: video_id_i, field_names[1]: video_subpath_i,
+						field_names[2]: class_id_i, field_names[3]: output_i}
 			pred_rows.append(pred_row)
 
 		# show progress

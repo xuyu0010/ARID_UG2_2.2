@@ -7,7 +7,7 @@ from . import video_sampler as sampler
 from . import video_transforms as transforms
 from .video_iterator import VideoIter
 
-def get_hmdb51(data_root='./dataset/HMDB51', clip_length=8, train_interval=2,
+def get_clear(data_root='./dataset/Clear', clip_length=8, train_interval=2,
 			mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225], seed=0, **kwargs):
 	""" data iter for hmdb51
 	"""
@@ -17,7 +17,7 @@ def get_hmdb51(data_root='./dataset/HMDB51', clip_length=8, train_interval=2,
 
 	train_sampler = sampler.RandomSampling(num=clip_length, interval=train_interval, speed=[1.0, 1.0], seed=(seed+0))
 	train = VideoIter(video_prefix=os.path.join(data_root, 'raw', 'train_data'),
-					  csv_list=os.path.join(data_root, 'raw', 'list_cvt', 'HMDB51_train_pub.csv'),
+					  csv_list=os.path.join(data_root, 'raw', 'list_cvt', 'ug2_2022_train_labeled.csv'),
 					  sampler=train_sampler,
 					  force_color=True,
 					  video_transform=transforms.Compose([
@@ -46,7 +46,7 @@ def get_arid(data_root='./dataset/ARID', clip_length=8, train_interval=2,
 
 	train_sampler = sampler.RandomSampling(num=clip_length, interval=train_interval, speed=[1.0, 1.0], seed=(seed+0))
 	train = VideoIter(video_prefix=os.path.join(data_root, 'raw', 'train_data'),
-					  csv_list=os.path.join(data_root, 'raw', 'list_cvt', 'ARID1.1_t2_train_pub.csv'),
+					  csv_list=os.path.join(data_root, 'raw', 'list_cvt', 'ug2_2022_train_dark.csv'),
 					  sampler=train_sampler,
 					  force_color=True,
 					  video_transform=transforms.Compose([
@@ -67,8 +67,8 @@ def get_arid(data_root='./dataset/ARID', clip_length=8, train_interval=2,
 
 def creat(name, batch_size, num_workers=4, **kwargs):
 
-	if name.upper() == 'HMDB51':
-		train = get_hmdb51(**kwargs)
+	if name.upper() == 'CLEAR':
+		train = get_clear(**kwargs)
 	elif name.upper() == 'ARID':
 		train = get_arid(**kwargs)
 	else:

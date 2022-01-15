@@ -1,5 +1,0 @@
-0	Drink
-1	Jump
-2	Pick
-3	Pour
-4	Push

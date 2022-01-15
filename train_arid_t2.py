@@ -1,5 +1,5 @@
 '''
-This repository serves as the base structure for UG2+ Challenge Track 2.2: Semi-supervised AR in the Dark.
+This repository serves as the base structure for UG2+ 2022 Challenge Track 2: Semi-supervised AR in the Dark.
 This repository is based on the repository at https://github.com/cypw/PyTorch-MFNet. We thank the authors for the repository.
 This repository is authored by Yuecong Xu, please contact at xuyu0014 at e.ntu.edu.sg
 
@@ -27,8 +27,8 @@ parser = argparse.ArgumentParser(description="PyTorch Video Classification Parse
 parser.add_argument('--debug-mode', type=bool, default=True, help="print all setting for debugging.")
 
 # io
-parser.add_argument('--dataset', default='HMDB-ARID')
-parser.add_argument('--source-dataset', default='HMDB51')
+parser.add_argument('--dataset', default='UG2-2022')
+parser.add_argument('--source-dataset', default='CLEAR')
 parser.add_argument('--target-dataset', default='ARID')
 parser.add_argument('--clip-length', default=16, help="define the length of each input sample.")
 parser.add_argument('--train-frame-interval', type=int, default=2,help="define the sampling interval between frames.")
@@ -38,7 +38,7 @@ parser.add_argument('--model-dir', type=str, default="./exps/models",help="set l
 parser.add_argument('--log-file', type=str, default="",help="set logging file.")
 
 # device
-parser.add_argument('--gpus', type=str, default="0,1,2,3,4,5,6,7",help="define gpu id")
+parser.add_argument('--gpus', type=str, default="0",help="define gpu id")
 
 # algorithm
 parser.add_argument('--network', type=str, default='R3D18',help="choose the base network")
