@@ -33,7 +33,7 @@ python predict_video.py --zip-file <YOUR PREFERRED ZIPFILE NAME>
 
 ## Other Information
 
-- For more about the rules, regulations about this competition, do visit our site [here](http://cvpr2021.ug2challenge.org/track2.html)
+- For more about the rules, regulations about this competition, do visit our site [here](http://cvpr2022.ug2challenge.org/track2.html)
 - Our code base is adapted from [Multi-Fiber Network for Video Recognition](https://github.com/cypw/PyTorch-MFNet), we would like to thank the authors for providing the code base.
-- You may contact me through cvpr2021.ug2challenge@gmail.com
+- You may contact me through cvpr2022.ug2challenge@gmail.com
 
