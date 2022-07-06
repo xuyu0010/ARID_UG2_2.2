@@ -33,7 +33,7 @@ python predict_video.py --zip-file <YOUR PREFERRED ZIPFILE NAME>
 
 ## Other Information
 __Updates for Jul 2022__
-- The UG2+ 2022 challenge has ended. Congratulations on all winning teams and thank you for your support. Due to limited resources and other technical factors, ARID will NOT be holding any new competitions in the near future. We hope to update/upgrade ARID soon for future challenges as soon as possible! In the meantime, feel free to recap this year's workshop and challenge [here](http://cvpr2022.ug2challenge.org)
+- The UG2+ 2022 challenge has ended. Congratulations on all winning teams and thank you for your support. Due to limited resources and other technical factors, ARID will NOT be holding any new competitions in the near future. We hope to update/upgrade ARID soon for future challenges as soon as possible! In the meantime, feel free to recap this year's workshop and challenge [here](http://cvpr2022.ug2challenge.org)!
 - We will like to update you with the latest statistics of ARID (v1.5) as follows:
 ```
 mean = [0.05131350665077962, 0.04543643187320746, 0.043676298767677715]
